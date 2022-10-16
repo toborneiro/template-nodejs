@@ -34,7 +34,7 @@ describe('Signup Controller', () => {
 });
 
 describe('Signup Controller', () => {
-  test('Should Return 400 if no email is provided', () => {
+  test('Should Return 400 if no password is provided', () => {
     const sut = new SignUpController();
     const httpResquest = {
       body: {
@@ -50,7 +50,7 @@ describe('Signup Controller', () => {
 });
 
 describe('Signup Controller', () => {
-  test('Should Return 400 if no email is provided', () => {
+  test('Should Return 400 if no passwordConfirmation is provided', () => {
     const sut = new SignUpController();
     const httpResquest = {
       body: {
