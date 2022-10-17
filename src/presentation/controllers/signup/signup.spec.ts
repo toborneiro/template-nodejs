@@ -1,8 +1,6 @@
 import { SignUpController } from './signup';
-import { MissingParamError, InvalidParamError, ServerError } from '../errors';
-import { EmailValidator } from '../protocols/email-validator';
-import { AccountModel } from '../../domain/models/account';
-import { AddAccountModel, AddAccount } from '../../domain/usecases/add-account';
+import { MissingParamError, InvalidParamError, ServerError } from '../../errors';
+import { EmailValidator, AccountModel, AddAccount, AddAccountModel } from './signup-protocols';
 
 interface SutTypes {
   sut: SignUpController;
@@ -104,9 +102,7 @@ describe('Signup Controller', () => {
     };
     const httpResponse = sut.handle(httpResquest);
     expect(httpResponse.statusCode).toBe(400);
-    expect(httpResponse.body).toEqual(
-      new MissingParamError('passwordConfirmation')
-    );
+    expect(httpResponse.body).toEqual(new MissingParamError('passwordConfirmation'));
   });
 });
 
@@ -179,9 +175,7 @@ describe('Signup Controller', () => {
     };
     const httpResponse = sut.handle(httpResquest);
     expect(httpResponse.statusCode).toBe(400);
-    expect(httpResponse.body).toEqual(
-      new InvalidParamError('passwordConfirmation')
-    );
+    expect(httpResponse.body).toEqual(new InvalidParamError('passwordConfirmation'));
   });
 });
 
