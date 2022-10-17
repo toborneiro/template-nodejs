@@ -13,7 +13,13 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
-    "prettier/prettier": "error",
-    "import/prefer-default-export": "off"
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": "off"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "max-len": "off"
   }
 }
